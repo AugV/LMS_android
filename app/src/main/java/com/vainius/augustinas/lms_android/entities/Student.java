@@ -1,4 +1,4 @@
-package entities;
+package com.vainius.augustinas.lms_android.entities;
 
 public class Student extends Person {
     private Group studentsGroup;
