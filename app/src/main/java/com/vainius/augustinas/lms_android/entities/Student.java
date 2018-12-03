@@ -19,7 +19,7 @@ public class Student extends Person {
 
     @Override
     public String toString() {
-        return "entities.Student{" +
+        return " Student{" +
                 "ID: " + getId() +
                 ", Name: " + getName() +
                 ", Surname: " + getSurname() +

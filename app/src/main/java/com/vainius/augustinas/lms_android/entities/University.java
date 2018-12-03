@@ -1,4 +1,4 @@
-package entities;
+package com.vainius.augustinas.lms_android.entities;
 
 import java.io.Serializable;
 import java.util.ArrayList;
