@@ -1,4 +1,4 @@
-package com.vainius.augustinas.lms_android.common;
+package com.vainius.augustinas.lms_android.main;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.vainius.augustinas.lms_android.R;
+import com.vainius.augustinas.lms_android.common.ViewMVC;
 
 public class RootViewMVCImpl implements ViewMVC {
 

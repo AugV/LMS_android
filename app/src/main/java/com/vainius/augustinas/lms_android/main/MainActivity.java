@@ -1,4 +1,4 @@
-package com.vainius.augustinas.lms_android.common;
+package com.vainius.augustinas.lms_android.main;
 
 
 import android.support.v4.app.Fragment;
@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import com.vainius.augustinas.lms_android.R;
+import com.vainius.augustinas.lms_android.common.BaseFragment;
 import com.vainius.augustinas.lms_android.login.LoginPageFragment;
 
 public class MainActivity extends AppCompatActivity implements BaseFragment.AbstractFragmentCallback {
@@ -19,6 +20,7 @@ public class MainActivity extends AppCompatActivity implements BaseFragment.Abst
         setContentView(mViewMVC.getRootView());
         if(savedInstanceState == null){
             replaceFragment(LoginPageFragment.class, false,null);
+            System.out.println("GOGOGO");
         }
     }
 
@@ -44,5 +46,6 @@ public class MainActivity extends AppCompatActivity implements BaseFragment.Abst
         }
 
         fragmentTransaction.replace(R.id.frame_contents, newFragment, claz.getClass().getSimpleName());
+        fragmentTransaction.commit();
     }
 }

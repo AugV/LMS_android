@@ -11,6 +11,8 @@ public class LoginPageFragment extends BaseFragment implements LoginPageViewMVC.
 
     LoginPageViewMVC mViewMVC;
 
+    String[] temp;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
         mViewMVC = new LoginPageViewMVCImpl(inflater, container);
@@ -26,4 +28,5 @@ public class LoginPageFragment extends BaseFragment implements LoginPageViewMVC.
             args.putString("student_id", loginId);
             args.putString("student_psw", loginPsw);
     }
+
 }
