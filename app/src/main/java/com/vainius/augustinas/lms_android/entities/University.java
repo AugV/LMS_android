@@ -8,9 +8,9 @@ import java.util.NoSuchElementException;
 public class University extends Entity implements Serializable {
     private static final long serialVersionUID = 6529685098267757690L;
 
-    private ArrayList<Teacher> teacherList = new ArrayList();
-    private ArrayList<Group> groupList = new ArrayList();
-    private ArrayList<Course> courseList = new ArrayList();
+    private List<Teacher> teacherList = new ArrayList();
+    private List<Group> groupList = new ArrayList();
+    private List<Course> courseList = new ArrayList();
 
     private Group selectedGroup;
 
@@ -29,7 +29,7 @@ public class University extends Entity implements Serializable {
 
     //Groups
     //region
-    public ArrayList<Group> getGroupList() {
+    public List<Group> getGroupList() {
         return groupList;
     }
 
@@ -58,7 +58,7 @@ public class University extends Entity implements Serializable {
     //endregion
     //Courses
     //region
-    public ArrayList<Course> getCourseList() {
+    public List<Course> getCourseList() {
         return courseList;
     }
 
@@ -90,7 +90,7 @@ public class University extends Entity implements Serializable {
     //endregion
     //Teachers
     // region
-    public ArrayList<Teacher> getTeacherList() {
+    public List<Teacher> getTeacherList() {
         return teacherList;
     }
 
