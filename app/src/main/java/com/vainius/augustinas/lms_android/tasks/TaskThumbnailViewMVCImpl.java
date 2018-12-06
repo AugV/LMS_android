@@ -9,15 +9,18 @@ import android.widget.TextView;
 import com.vainius.augustinas.lms_android.R;
 import com.vainius.augustinas.lms_android.entities.Task;
 
-public class TaskThumbnailMVCImpl implements TaskThumbnailViewMVC {
+public class TaskThumbnailViewMVCImpl implements TaskThumbnailViewMVC {
 
     View mRootView;
     TextView mTxtId;
     TextView mTxtName;
 
-    public TaskThumbnailMVCImpl(Context context, ViewGroup container) {
+    public TaskThumbnailViewMVCImpl(Context context, ViewGroup container) {
         this.mRootView = LayoutInflater.from(context)
                 .inflate(R.layout.mvc_view_task_thumbnail, container, false);
+
+        mTxtId = (TextView)mRootView.findViewById(R.id.task_id);
+        mTxtName = (TextView)mRootView.findViewById(R.id.task_name);
 
     }
 
@@ -29,7 +32,7 @@ public class TaskThumbnailMVCImpl implements TaskThumbnailViewMVC {
 
     @Override
     public View getRootView() {
-        return null;
+        return mRootView;
     }
 
     @Override
