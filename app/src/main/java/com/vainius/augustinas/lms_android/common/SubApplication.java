@@ -10,6 +10,7 @@ import java.util.List;
 
 public class SubApplication extends Application implements StudentInfoListener {
     private int studentId;
+    private List<Course> studentCourseList;
 
     public int getStudentId() {
         return studentId;
@@ -27,7 +28,7 @@ public class SubApplication extends Application implements StudentInfoListener {
         this.studentCourseList = studentCourseList;
     }
 
-    private List<Course> studentCourseList;
+
 
 
     public int getId() {
@@ -46,5 +47,10 @@ public class SubApplication extends Application implements StudentInfoListener {
     @Override
     public void studentCoursesFetched(List<Course> courses) {
         setStudentCourseList(courses);
+    }
+
+    @Override
+    public List<Course> getStudentCourses() {
+        return studentCourseList;
     }
 }
