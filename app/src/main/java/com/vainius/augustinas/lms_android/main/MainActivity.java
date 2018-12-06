@@ -20,7 +20,6 @@ public class MainActivity extends AppCompatActivity implements BaseFragment.Abst
         setContentView(mViewMVC.getRootView());
         if(savedInstanceState == null){
             replaceFragment(LoginPageFragment.class, false,null);
-            System.out.println("GOGOGO");
         }
     }
 

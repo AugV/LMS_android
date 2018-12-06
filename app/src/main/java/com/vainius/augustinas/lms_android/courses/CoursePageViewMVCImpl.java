@@ -38,6 +38,7 @@ public class CoursePageViewMVCImpl implements CoursePageViewMVC {
     public void bindCourses(List<Course> courses) {
         mCourseListAdapter.clear();
         mCourseListAdapter.addAll(courses);
+        mCourseListAdapter.notifyDataSetChanged();
     }
 
     @Override
