@@ -45,9 +45,6 @@ public class LoginPageViewMVCImpl implements LoginPageViewMVC {
 
     @Override
     public Bundle getViewState() {
-        Bundle args = new Bundle(2);
-        args.putString("student_id", mLoginId.getText().toString());
-        args.putString("student_psw", mLoginPsw.getText().toString());
-        return args;
+        return null;
     }
 }

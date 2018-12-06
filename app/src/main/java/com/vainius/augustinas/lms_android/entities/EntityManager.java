@@ -1,12 +1,18 @@
-package com.vainius.augustinas.lms_android.util;
+package com.vainius.augustinas.lms_android.entities;
 
 import com.vainius.augustinas.lms_android.entities.*;
 
-public class UniversityDataFiller {
+import java.util.List;
+
+public class EntityManager {
 
     University university;
 
-    public UniversityDataFiller() {
+    public EntityManager() {
+        initialize();
+    }
+
+    private void initialize() {
         university = new University(1, "VGTU");
         university.addTeacher(1,"Tadas", "jablinksis");
         university.addTeacher(2,"Laimonas", "Stanislovsksi");
@@ -24,10 +30,10 @@ public class UniversityDataFiller {
         university.addCourse(new  Course(
                 3,"darkoks velnias", "dar vienas niekam nereikalingas kursas", university.getTeacherByID(1), university.getGroupByID(2)));
 
-         Task task1 = new  Task(1,"primasTaskas", "ejozaselse per ezereli", "08-09", "5" );
+        Task task1 = new  Task(1,"primasTaskas", "ejozaselse per ezereli", "08-09", "5" );
         university.getCourseByID(1).addCourseTask(task1);
 
-         Task task2 = new  Task(2,"antrasTaskas", "ezerelis ejo per zaselse", "12-12", "1");
+        Task task2 = new  Task(2,"antrasTaskas", "ezerelis ejo per zaselse", "12-12", "1");
         university.getCourseByID(2).addCourseTask(task2);
 
 
@@ -37,7 +43,15 @@ public class UniversityDataFiller {
                 2, "neteisingas atsakymas, biciuli",university.getGroupByID(1).getGroupStudents().get(0)));
         university.getCourseByID(1).getCourseTaskByID(1).getTaskCompletedTasks().get(0).setGrade("10");
         university.getCourseByID(2).getCourseTaskByID(2).getTaskCompletedTasks().get(0).setGrade("2");
+    }
 
+    public List<Course> getStudentsCoursesById(int studentsId){
+        for (Student student : university.getAllStudents()) {
+            if(student.getId()==studentsId){
+                return student.getStudentsGroup().getGroupCourses();
+            }
+        }
+        return null;
     }
 
     public University getUniversityWithData(){

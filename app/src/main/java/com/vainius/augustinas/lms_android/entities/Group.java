@@ -3,11 +3,12 @@ package com.vainius.augustinas.lms_android.entities;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Group extends Entity implements Serializable {
 
-    ArrayList<Student> groupStudents = new ArrayList();
-    ArrayList<Course> groupCourses = new ArrayList();
+    List<Student> groupStudents = new ArrayList();
+    List<Course> groupCourses = new ArrayList();
 
 
     public void addGroupCourse(Course groupCourse) {
@@ -18,7 +19,7 @@ public class Group extends Entity implements Serializable {
         super(id, name);
     }
 
-    public ArrayList<Student> getGroupStudents() {
+    public List<Student> getGroupStudents() {
         return groupStudents;
     }
 
@@ -27,7 +28,7 @@ public class Group extends Entity implements Serializable {
         this.groupStudents.add(student);
     }
 
-    public ArrayList<Course> getGroupCourses() {
+    public List<Course> getGroupCourses() {
         return groupCourses;
     }
 

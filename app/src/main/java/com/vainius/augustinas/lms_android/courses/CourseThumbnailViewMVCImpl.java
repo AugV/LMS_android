@@ -29,7 +29,7 @@ public class CourseThumbnailViewMVCImpl implements CourseThumbnailViewMVC {
 
     @Override
     public void bindCourse(Course course) {
-        mTxtId.setText(course.getId());
+        mTxtId.setText(String.valueOf(course.getId()));
         mTxtName.setText(course.getName());
     }
 

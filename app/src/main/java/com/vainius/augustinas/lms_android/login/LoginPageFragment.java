@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.vainius.augustinas.lms_android.common.BaseFragment;
+import com.vainius.augustinas.lms_android.courses.CoursePageFragment;
 
 public class LoginPageFragment extends BaseFragment implements LoginPageViewMVC.LoginPageViewMVCListener{
 
@@ -22,9 +23,10 @@ public class LoginPageFragment extends BaseFragment implements LoginPageViewMVC.
 
     @Override
     public void onLoginButtonClicked(String loginId, String loginPsw) {
-            Bundle args = mViewMVC.getViewState(); //new Bundle(2);
-//            args.putString("student_id", loginId);
-//            args.putString("student_psw", loginPsw);
+            Bundle args = new Bundle(2);
+            args.putString("student_id", loginId);
+            args.putString("student_psw", loginPsw);
+        replaceFragment(CoursePageFragment.class, true, args);
     }
 
 }
