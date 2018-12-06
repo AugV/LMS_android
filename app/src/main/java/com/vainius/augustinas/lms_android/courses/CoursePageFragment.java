@@ -28,11 +28,11 @@ public class CoursePageFragment extends BaseFragment implements CoursePageViewMV
 
         Bundle args = getArguments();
         mStudentId = Integer.parseInt(args.getString("student_id"));
-
+//TODO this part: somehow terminates program.
         mStudentInfoListener = ((SubApplication)getContext());
         mStudentInfoListener.studentIdFetched(Integer.parseInt(args.getString("student_id")));
         mStudentInfoListener.studentCoursesFetched(mEntityManager.getStudentsCoursesById(mStudentId));
-
+//TODO this part
         return mViewMVC.getRootView();
     }
 
