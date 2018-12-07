@@ -18,7 +18,7 @@ public class AnswersViewMVCImpl implements AnswersViewMVC {
     TextView mTxtGradeDate;
 
     public AnswersViewMVCImpl(LayoutInflater inflater, ViewGroup container) {
-        this.mRootView = inflater.inflate(R.layout.mvc_view_completed_task_page_review, container);
+        this.mRootView = inflater.inflate(R.layout.mvc_view_completed_task_page_review, container, false);
         mTxtAnswer = mRootView.findViewById(R.id.txtAnswer);
         mTxtSubmissionDate = mRootView.findViewById(R.id.txtSubmissionDate);
         mTxtGrade = mRootView.findViewById(R.id.txtGrade);

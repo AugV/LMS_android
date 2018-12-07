@@ -3,7 +3,7 @@ package com.vainius.augustinas.lms_android.common;
 import android.app.Application;
 
 import com.vainius.augustinas.lms_android.entities.Course;
-import com.vainius.augustinas.lms_android.entities.PseudoDatabase;
+import com.vainius.augustinas.lms_android.util.PseudoDatabase;
 import com.vainius.augustinas.lms_android.entities.Student;
 import com.vainius.augustinas.lms_android.entities.Task;
 import com.vainius.augustinas.lms_android.util.Cache;

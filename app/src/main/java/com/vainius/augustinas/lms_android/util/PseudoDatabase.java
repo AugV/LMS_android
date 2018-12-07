@@ -1,4 +1,4 @@
-package com.vainius.augustinas.lms_android.entities;
+package com.vainius.augustinas.lms_android.util;
 
 import com.vainius.augustinas.lms_android.entities.*;
 
@@ -63,17 +63,13 @@ public class PseudoDatabase {
         return null;
     }
 
-    public CompletedTask getStudentsCompletedTask(Course selectedCourse, Student student, Task selectedTask) {
-            for (Task task : selectedCourse.getCourseTasks()) {
-                if (task == selectedTask) {
-                    for (CompletedTask complTask :
-                            task.getTaskCompletedTasks()) {
-                        if (complTask.getOwner() == student) {
-                            return complTask;
-                        }
-                    }
-                }
+    public CompletedTask getStudentsCompletedTask(Student student, Task selectedTask) {
+        for (CompletedTask complTask : selectedTask.getTaskCompletedTasks()) {
+            if (complTask.getOwner() == student) {
+                return complTask;
             }
+        }
+        System.out.println("yes its me you're correct");
         return null;
     }
 
