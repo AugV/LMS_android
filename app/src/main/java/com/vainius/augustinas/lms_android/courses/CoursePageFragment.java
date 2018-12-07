@@ -6,41 +6,40 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.vainius.augustinas.lms_android.common.BaseFragment;
-import com.vainius.augustinas.lms_android.common.SubApplication;
-import com.vainius.augustinas.lms_android.entities.EntityManager;
+import com.vainius.augustinas.lms_android.common.PseudoCache;
 import com.vainius.augustinas.lms_android.tasks.TaskPageFragment;
-import com.vainius.augustinas.lms_android.util.StudentInfoListener;
+import com.vainius.augustinas.lms_android.util.Cache;
+import com.vainius.augustinas.lms_android.util.Database;
 
 public class CoursePageFragment extends BaseFragment implements CoursePageViewMVC.CourseListViewListener {
 
-    CoursePageViewMVC mViewMVC;
-    EntityManager mEntityManager;
-    int mStudentId;
-    StudentInfoListener mStudentInfoListener;
-
+    private CoursePageViewMVC mViewMVC;
+    //private PseudoDatabase mEntityManager;
+    private int mStudentId;
+    private Cache mCache;
+    private Database mDatabase;
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstance){
-        mEntityManager =new EntityManager();
-
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstance) {
+        //mEntityManager = new PseudoDatabase();
+        mCache = ((PseudoCache) getContext().getApplicationContext());
+        mDatabase = ((PseudoCache) getContext().getApplicationContext());
         mViewMVC = new CoursePageViewMVCImpl(inflater, container);
         mViewMVC.setListener(this);
 
-        Bundle args = getArguments();
-        mStudentId = Integer.parseInt(args.getString("student_id"));
-//TODO this part: somehow terminates program.
-        mStudentInfoListener = ((SubApplication)getContext().getApplicationContext());
-        mStudentInfoListener.studentIdFetched(Integer.parseInt(args.getString("student_id")));
-        mStudentInfoListener.studentCoursesFetched(mEntityManager.getStudentsCoursesById(mStudentId));
-//TODO this part
-        System.out.println("HERE WE GO");
+        Bundle loginInformation = getArguments();
+        mStudentId = Integer.parseInt(loginInformation.getString("student_id"));
+
+        mCache.studentFetched(mDatabase.querryDatabase().getStudentById(mStudentId));
+        mCache.studentCoursesFetched(mDatabase.querryDatabase().getStudentsCoursesById(mStudentId));
+
         return mViewMVC.getRootView();
     }
 
     @Override
     public void onStart() {
         super.onStart();
-        mViewMVC.bindCourses(mEntityManager.getStudentsCoursesById(mStudentId));
+        mViewMVC.bindCourses(mDatabase.querryDatabase().getStudentsCoursesById(mStudentId));
     }
 
     @Override

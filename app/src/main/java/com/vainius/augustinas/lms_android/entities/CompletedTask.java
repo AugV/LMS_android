@@ -11,22 +11,11 @@ public class CompletedTask extends Entity implements Serializable  {
 
     private Student owner;
 
-    public Student getOwner() {
-        return owner;
-    }
-
-    public String getSubmissionDate() {
-        return submissionDate;
-    }
-
-    public String getGradeDate() {
-        return gradeDate;
-    }
-
     private String answer;
     private String grade;
     private String submissionDate;
     private String gradeDate;
+
 
     public CompletedTask(int id, String answer, Student owner) {
         super(id);
@@ -37,6 +26,18 @@ public class CompletedTask extends Entity implements Serializable  {
 
     public String getAnswer() {
         return answer;
+    }
+
+    public Student getOwner() {
+        return owner;
+    }
+
+    public String getSubmissionDate() {
+        return submissionDate;
+    }
+
+    public String getGradeDate() {
+        return gradeDate;
     }
 
 

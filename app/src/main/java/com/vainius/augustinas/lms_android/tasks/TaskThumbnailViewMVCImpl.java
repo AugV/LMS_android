@@ -1,6 +1,7 @@
 package com.vainius.augustinas.lms_android.tasks;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,6 +30,7 @@ public class TaskThumbnailViewMVCImpl implements TaskThumbnailViewMVC {
         mTxtId.setText(String.valueOf(task.getId()));
         mTxtName.setText(task.getName());
     }
+
 
     @Override
     public View getRootView() {
