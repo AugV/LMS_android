@@ -35,7 +35,7 @@ public class TaskPageFragment extends BaseFragment implements TaskPageViewMVC.Ta
     }
 
     private void setTasks() {
-        mStudentInfoListener = ((SubApplication) getContext());
+        mStudentInfoListener = ((SubApplication) getContext().getApplicationContext());
         for (Course course : mStudentInfoListener.getStudentCourses()
                 ) {
             if (course.getId() == courseId) {
