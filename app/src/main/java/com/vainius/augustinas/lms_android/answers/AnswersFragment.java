@@ -26,7 +26,7 @@ public class AnswersFragment extends BaseFragment {
 
         Bundle taskInfo = getArguments();
         taskId = taskInfo.getInt("task_id");
-        cacheSelectedTask(taskId);
+
 
         return mViewMVC.getRootView();
     }
@@ -39,13 +39,7 @@ public class AnswersFragment extends BaseFragment {
                 mCache.getSelectedTask()));
     }
 
-    private void cacheSelectedTask(int taskId) {
-        for (Task task : mCache.getSelectedCourse().getCourseTasks()) {
-            if (task.getId() == taskId) {
-                mCache.selectedTaskFetched(task);
-            }
-        }
-    }
+
 
 }
 //TODO

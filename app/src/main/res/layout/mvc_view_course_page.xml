@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ListView
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/list_courses"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-</ListView>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_height="match_parent"
+              android:layout_width="match_parent" android:orientation="vertical">
+    <TextView android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:text="Courses"
+              android:textSize="20dp"
+              android:textStyle="bold"/>
+    <ListView
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/list_courses"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+    </ListView>
+</LinearLayout>

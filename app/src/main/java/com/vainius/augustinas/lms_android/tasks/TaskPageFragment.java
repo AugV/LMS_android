@@ -8,8 +8,10 @@ import android.view.ViewGroup;
 import com.vainius.augustinas.lms_android.answers.AnswersFragment;
 import com.vainius.augustinas.lms_android.common.BaseFragment;
 import com.vainius.augustinas.lms_android.common.PseudoCache;
+import com.vainius.augustinas.lms_android.entities.CompletedTask;
 import com.vainius.augustinas.lms_android.entities.Course;
 import com.vainius.augustinas.lms_android.entities.Task;
+import com.vainius.augustinas.lms_android.submit_answer.SubmitAnswerFragment;
 import com.vainius.augustinas.lms_android.util.Cache;
 
 import java.util.List;
@@ -36,6 +38,14 @@ public class TaskPageFragment extends BaseFragment implements TaskPageViewMVC.Ta
         return mViewMvc.getRootView();
     }
 
+    private void cacheSelectedTask(int taskId) {
+        for (Task task : mCache.getSelectedCourse().getCourseTasks()) {
+            if (task.getId() == taskId) {
+                mCache.selectedTaskFetched(task);
+            }
+        }
+    }
+
     private void selectedCourseToCache(int courseId) {
         for (Course course : mCache.getStudentCourses()
         ) {
@@ -57,8 +67,22 @@ public class TaskPageFragment extends BaseFragment implements TaskPageViewMVC.Ta
 
     @Override
     public void onTaskClicked(int id) {
+        cacheSelectedTask(id);
+
         Bundle taskInfo = new Bundle(1);
         taskInfo.putInt("task_id", id);
-        replaceFragment(AnswersFragment.class, true, taskInfo);
+        if (answerExists(mCache.getSelectedTask())) {
+            replaceFragment(AnswersFragment.class, true, taskInfo);
+        } else {replaceFragment(SubmitAnswerFragment.class, true, taskInfo);}
+    }
+
+    private boolean answerExists(Task task) {
+        for (CompletedTask cmplTask :
+                task.getTaskCompletedTasks()) {
+            if (cmplTask.getOwner() == mCache.getStudent()) {
+                return true;
+            }
+        }
+        return false;
     }
 }

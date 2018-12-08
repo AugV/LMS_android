@@ -37,12 +37,12 @@ public class PseudoDatabase {
         university.getCourseByID(2).addCourseTask(task2);
 
 
-        university.getCourseByID(1).getCourseTaskByID(1).addTaskCompletedTask(new CompletedTask(
-                1, "teisingas atsakymas, kolegos", university.getGroupByID(2).getGroupStudents().get(0)));
-        university.getCourseByID(2).getCourseTaskByID(2).addTaskCompletedTask(new CompletedTask(
-                2, "neteisingas atsakymas, biciuli", university.getGroupByID(1).getGroupStudents().get(0)));
-        university.getCourseByID(1).getCourseTaskByID(1).getTaskCompletedTasks().get(0).setGrade("10");
-        university.getCourseByID(2).getCourseTaskByID(2).getTaskCompletedTasks().get(0).setGrade("2");
+//        university.getCourseByID(1).getCourseTaskByID(1).addTaskCompletedTask(new CompletedTask(
+//                1, "teisingas atsakymas, kolegos", university.getGroupByID(2).getGroupStudents().get(0)));
+//        university.getCourseByID(2).getCourseTaskByID(2).addTaskCompletedTask(new CompletedTask(
+//                2, "neteisingas atsakymas, biciuli", university.getGroupByID(1).getGroupStudents().get(0)));
+//        university.getCourseByID(1).getCourseTaskByID(1).getTaskCompletedTasks().get(0).setGrade("10");
+//        university.getCourseByID(2).getCourseTaskByID(2).getTaskCompletedTasks().get(0).setGrade("2");
     }
 
     public List<Course> getStudentsCoursesById(int studentsId) {
@@ -73,7 +73,11 @@ public class PseudoDatabase {
         return null;
     }
 
-
+    public void addCompletedTask(Task task, Student owner, String answer){
+        int random = (int)Math.random()*100;
+        CompletedTask newTask = new CompletedTask(random, answer, owner);
+        task.addTaskCompletedTask(newTask);
+    }
     public University getUniversityWithData() {
         return university;
     }
