@@ -36,4 +36,12 @@
             android:text="Login">
     </Button>
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="*id = '1' or '2' for testing"
+        android:textStyle="italic"
+        android:textSize="10dp">
+    </TextView>
+
 </LinearLayout>

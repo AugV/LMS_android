@@ -9,7 +9,7 @@ import android.widget.TextView;
 import com.vainius.augustinas.lms_android.R;
 import com.vainius.augustinas.lms_android.entities.CompletedTask;
 
-public class AnswersViewMVCImpl implements AnswersViewMVC {
+public class AnswerViewMVCImpl implements AnswerViewMVC {
 
     View mRootView;
     TextView mTxtAnswer;
@@ -17,8 +17,8 @@ public class AnswersViewMVCImpl implements AnswersViewMVC {
     TextView mTxtGrade;
     TextView mTxtGradeDate;
 
-    public AnswersViewMVCImpl(LayoutInflater inflater, ViewGroup container) {
-        this.mRootView = inflater.inflate(R.layout.mvc_view_completed_task_page_review, container, false);
+    public AnswerViewMVCImpl(LayoutInflater inflater, ViewGroup container) {
+        this.mRootView = inflater.inflate(R.layout.mvc_view_answer_review, container, false);
         mTxtAnswer = mRootView.findViewById(R.id.txtAnswer);
         mTxtSubmissionDate = mRootView.findViewById(R.id.txtSubmissionDate);
         mTxtGrade = mRootView.findViewById(R.id.txtGrade);

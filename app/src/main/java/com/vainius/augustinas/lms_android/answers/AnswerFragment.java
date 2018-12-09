@@ -6,21 +6,19 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.vainius.augustinas.lms_android.common.BaseFragment;
 import com.vainius.augustinas.lms_android.common.PseudoCache;
-import com.vainius.augustinas.lms_android.entities.CompletedTask;
-import com.vainius.augustinas.lms_android.entities.Task;
 import com.vainius.augustinas.lms_android.util.Cache;
 import com.vainius.augustinas.lms_android.util.Database;
 
-public class AnswersFragment extends BaseFragment {
+public class AnswerFragment extends BaseFragment {
 
-    AnswersViewMVC mViewMVC;
+    AnswerViewMVC mViewMVC;
     int taskId;
     private Database mDatabase;
     private Cache mCache;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle args) {
-        mViewMVC = new AnswersViewMVCImpl(inflater, container);
+        mViewMVC = new AnswerViewMVCImpl(inflater, container);
         mDatabase = ((PseudoCache) getContext().getApplicationContext());
         mCache = ((PseudoCache) getContext().getApplicationContext());
 

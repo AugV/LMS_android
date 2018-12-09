@@ -5,7 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.vainius.augustinas.lms_android.answers.AnswersFragment;
+import com.vainius.augustinas.lms_android.answers.AnswerFragment;
 import com.vainius.augustinas.lms_android.common.BaseFragment;
 import com.vainius.augustinas.lms_android.common.PseudoCache;
 import com.vainius.augustinas.lms_android.entities.CompletedTask;
@@ -72,7 +72,7 @@ public class TaskPageFragment extends BaseFragment implements TaskPageViewMVC.Ta
         Bundle taskInfo = new Bundle(1);
         taskInfo.putInt("task_id", id);
         if (answerExists(mCache.getSelectedTask())) {
-            replaceFragment(AnswersFragment.class, true, taskInfo);
+            replaceFragment(AnswerFragment.class, true, taskInfo);
         } else {replaceFragment(SubmitAnswerFragment.class, true, taskInfo);}
     }
 

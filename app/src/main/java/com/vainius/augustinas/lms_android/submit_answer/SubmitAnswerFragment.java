@@ -29,5 +29,7 @@ public class SubmitAnswerFragment extends BaseFragment implements SubmitAnswerVi
     @Override
     public void onSubmitClicked(String answer) {
         mDatabase.querryDatabase().addCompletedTask(mCache.getSelectedTask(), mCache.getStudent(), answer);
+        getFragmentManager().popBackStack();
+
     }
 }
